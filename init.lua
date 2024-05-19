@@ -11,6 +11,10 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+vim.g.initial_cwd = vim.fn.getcwd()
+
+
 require("config.options")
 
 require("lazy").setup("plugins")
+require("config.keymaps")

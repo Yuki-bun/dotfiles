@@ -1,0 +1,8 @@
+local builtin = require("telescope.builtin")
+vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "find files (Root dir)" })
+vim.keymap.set("n", "<leader>fF", builtin.git_files, { desc = "find files (CWD)" })
+vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "fuzzy grep" })
+vim.keymap.set("n", "<leader>fG", builtin.current_buffer_fuzzy_find, { desc = "fuzzy grep (cuurent buffer)" })
+vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "find files (buffer)" })
+vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "help" })
+vim.keymap.set("n", "<leader>fm", builtin.marks, {noremap=true, desc="find marks"})
