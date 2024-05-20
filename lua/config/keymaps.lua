@@ -16,3 +16,6 @@ vim.keymap.set("n", "<M-h>", "<c-w>5<")
 vim.keymap.set("n", "<M-l>", "<c-w>5>")
 vim.keymap.set("n", "<M-k>", "<C-W>+")
 vim.keymap.set("n", "<M-j>", "<C-W>-")
+
+vim.keymap.set("n", "bp", ":bprevious<CR>", { desc = "previous buffer" })
+vim.keymap.set("n", "bn", ":bnext<CR>", { desc = "next buffer" })

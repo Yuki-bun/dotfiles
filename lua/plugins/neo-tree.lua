@@ -27,6 +27,6 @@ return {
 		},
 	},
 	config = function()
-    require("custom.neo-tree")
+		require("custom.neo-tree")
 	end,
 }
