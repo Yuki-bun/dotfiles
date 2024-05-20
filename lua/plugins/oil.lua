@@ -1,0 +1,14 @@
+return {
+  "stevearc/oil.nvim",
+  opts = {},
+  -- Optional dependencies
+  dependencies = { "nvim-tree/nvim-web-devicons" },
+  config = function()
+    require("oil").setup({
+      columns = { "icon" },
+      view_options = { show_hidden = true },
+    })
+
+    vim.keymap.set("n", "<leader>fe", "<CMD>Oil<CR>", { noremap = true, desc = "edit dir" })
+  end,
+}
