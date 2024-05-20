@@ -12,6 +12,27 @@ return {
 		end,
 	},
 	{
+		"tanvirtin/vgit.nvim",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+		},
+		config = function()
+			require("vgit").setup()
+			vim.keymap.set(
+				"n",
+				"<leader>gf",
+				":VGit buffer_history_preview<CR>",
+				{ noremap = true, desc = "file history" }
+			)
+			vim.keymap.set(
+				"n",
+				"<leader>gF",
+				":VGit project_diff_preview<CR>",
+				{ noremap = true, desc = "project diff" }
+			)
+		end,
+	},
+	{
 		"f-person/git-blame.nvim",
 		config = function()
 			require("gitblame").setup({ enabled = false })
