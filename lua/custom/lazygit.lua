@@ -1,3 +1,4 @@
+-- This is not working propery
 local M = {}
 
 -- Function to get the project root directory

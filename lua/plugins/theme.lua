@@ -1,11 +1,9 @@
 return {
-	"sainnhe/sonokai",
-	lazy = false,
+	"ellisonleao/gruvbox.nvim",
 	priority = 1000,
 	config = function()
-		-- Optionally configure and load the colorscheme
-		-- directly inside the plugin declaration.
-		vim.g.sonokai_enable_italic = true
-		vim.cmd.colorscheme("sonokai")
+		require("gruvbox").setup({})
+		vim.o.background = "dark" -- or "light" for light mode
+		vim.cmd([[colorscheme gruvbox]])
 	end,
 }

@@ -9,6 +9,6 @@ return {
 			view_options = { show_hidden = true },
 		})
 
-		vim.keymap.set("n", "<leader>fe", "<CMD>Oil<CR>", { noremap = true, desc = "edit dir" })
+		vim.keymap.set("n", "-", "<CMD>Oil<CR>", { noremap = true, desc = "edit dir" })
 	end,
 }
