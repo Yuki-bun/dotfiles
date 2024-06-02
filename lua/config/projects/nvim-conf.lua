@@ -1,9 +1,8 @@
-vim.api.nvim_create_augroup("nvim-con-lua", { clear = true })
+vim.api.nvim_create_augroup("auto-format", { clear = true })
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-	group = "nvim-con-lua",
-	desc = "auto save",
-	callback = function()
-		print("formatting")
-		vim.lsp.buf.format()
-	end,
+  group = "auto-format",
+  desc = "auto save",
+  callback = function()
+    vim.lsp.buf.format()
+  end,
 })

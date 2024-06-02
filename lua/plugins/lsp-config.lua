@@ -28,6 +28,7 @@ return {
     config = function()
       -- IMPORTANT: make sure to setup neodev BEFORE lspconfig
       require("neodev").setup({})
+      local cmp_nvim_lsp = require("cmp_nvim_lsp")
       local lspconfig = require("lspconfig")
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
@@ -35,7 +36,10 @@ return {
         local navbuddy = require("nvim-navbuddy")
         navbuddy.attach(client, bufnr)
       end
-      lspconfig.lua_ls.setup({ capabilities = capabilities, on_attach = on_attach })
+      lspconfig.lua_ls.setup({
+        capabilities = cmp_nvim_lsp.default_capabilities(),
+        on_attach = on_attach,
+      })
       lspconfig.tsserver.setup({ capabilities = capabilities, on_attach = on_attach })
       lspconfig.html.setup({})
       lspconfig.tailwindcss.setup({})
@@ -43,6 +47,7 @@ return {
       lspconfig.clangd.setup({ capabilities = capabilities, on_attach = on_attach })
       lspconfig.prismals.setup({ capabilities = capabilities, on_attach = on_attach })
 
+      --- @param direction '"next"'|'"prev"'
       local function goto_reference(direction)
         local bufnr = vim.api.nvim_get_current_buf()
         local params = vim.lsp.util.make_position_params()
