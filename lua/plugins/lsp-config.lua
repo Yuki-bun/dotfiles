@@ -36,10 +36,7 @@ return {
         local navbuddy = require("nvim-navbuddy")
         navbuddy.attach(client, bufnr)
       end
-      lspconfig.lua_ls.setup({
-        capabilities = cmp_nvim_lsp.default_capabilities(),
-        on_attach = on_attach,
-      })
+      lspconfig.lua_ls.setup({ capabilities = capabilities, on_attach = on_attach })
       lspconfig.tsserver.setup({ capabilities = capabilities, on_attach = on_attach })
       lspconfig.html.setup({})
       lspconfig.tailwindcss.setup({})
