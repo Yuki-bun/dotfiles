@@ -31,3 +31,9 @@ vim.keymap.set("n", "bn", ":bnext<CR>", { desc = "next buffer", silent = true })
 
 vim.keymap.set("i", "jj", "<ESC>")
 vim.keymap.set("n", "<leader>h", ":nohlsearch<CR>", { noremap = true, silent = true, desc = "turn off hightlight" })
+
+vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers["signature_help"], {
+	border = "single",
+	close_events = { "CursorMoved", "BufHidden" },
+})
+vim.keymap.set("i", "<c-s>", vim.lsp.buf.signature_help)
