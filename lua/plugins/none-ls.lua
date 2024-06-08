@@ -5,7 +5,7 @@ return {
 	},
 	config = function()
 		local null_ls = require("null-ls")
-		vim.lsp.buf.format({ timeout_ms = 4000 })
+		vim.lsp.buf.format({ timeout_ms = 8001 })
 
 		null_ls.setup({
 			sources = {
