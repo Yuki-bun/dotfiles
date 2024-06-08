@@ -43,6 +43,7 @@ return {
       lspconfig.pyright.setup({ capabilities = capabilities, on_attach = on_attach })
       lspconfig.clangd.setup({ capabilities = capabilities, on_attach = on_attach })
       lspconfig.prismals.setup({ capabilities = capabilities, on_attach = on_attach })
+      lspconfig.sourcekit.setup({ capabilities = capabilities, onattach = on_attach })
 
       --- @param direction '"next"'|'"prev"'
       local function goto_reference(direction)
