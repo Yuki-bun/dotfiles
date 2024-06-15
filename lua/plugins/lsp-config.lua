@@ -131,13 +131,13 @@ return {
       -- Keybindings
       vim.api.nvim_set_keymap(
         "n",
-        "]]",
+        "<C-n>",
         ":lua GoToNextReference()<CR>",
         { noremap = true, silent = true, desc = "go to next reference" }
       )
       vim.api.nvim_set_keymap(
         "n",
-        "[[",
+        "<C-p>",
         ":lua GoToPrevReference()<CR>",
         { noremap = true, silent = true, desc = "go to prev reference" }
       )
