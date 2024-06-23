@@ -129,15 +129,21 @@ export NVM_DIR="$HOME/.nvm"
 eval "$(zoxide init zsh)"
 
 activate_venv() {
+    local manual="${1:-false}"
     if [ -f "venv/bin/activate" ]; then
         source venv/bin/activate
+        echo "activated venv"
     elif [ -f ".venv/bin/activate" ]; then
         source .venv/bin/activate
-    else
+        echo "activated .venv"
+    elif [ "$manual" = true ]; then
         echo "No virtual environment found."
     fi
 }
+chpwd() {
+    activate_venv
+}
 
 # Alias to activate the virtual environment
-alias s='activate_venv'
+alias s='activate_venv true'
 
