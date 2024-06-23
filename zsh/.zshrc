@@ -147,3 +147,12 @@ chpwd() {
 # Alias to activate the virtual environment
 alias s='activate_venv true'
 
+# Function to change directory using fzf
+cd_fzf() {
+    local dir
+    dir=$(find ${1:-.} -type d 2> /dev/null | fzf +m) &&
+    z "$dir"
+}
+
+# Alias to call the function
+alias cdf="cd_fzf"
