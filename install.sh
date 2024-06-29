@@ -17,7 +17,7 @@ sudo apt install stow -y
 
 echo "Installing fzf"
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-~/.fzf/install
+yes y | ~/.fzf/install
 source ~/.bashrc
 
 echo "Installing lazygit"
