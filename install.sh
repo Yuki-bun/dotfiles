@@ -31,6 +31,7 @@ sudo apt install fortune -y
 
 echo "Install zoxide"
 conda install -c conda-forge zoxide -y
+eval "$(zoxide init bash)"
 
 DOTFILES_DIR="/workspaces/.codespaces/.persistedshare/dotfiles"
 
