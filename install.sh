@@ -30,6 +30,9 @@ sudo install lazygit /usr/local/bin
 echo "Installing fortune for tmux"
 sudo apt install fortune -y
 
+echo "Install zoxide"
+conda install -c conda-forge zoxide -y
+
 DOTFILES_DIR="/workspaces/.codespaces/.persistedshare/dotfiles"
 
 echo "Setting up simlinks"
