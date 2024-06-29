@@ -37,3 +37,6 @@ vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers["
 	close_events = { "CursorMoved", "BufHidden" },
 })
 vim.keymap.set({ "i", "n" }, "<c-s>", vim.lsp.buf.signature_help)
+
+vim.keymap.set({ "n", "v" }, "H", "^")
+vim.keymap.set({ "n", "v" }, "L", "$")
