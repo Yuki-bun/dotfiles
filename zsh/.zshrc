@@ -118,9 +118,6 @@ alias vim='nvim --listen /tmp/nvim-server.pipe'
 export PATH="/opt/homebrew/bin:$PATH"
 alias python='/opt/homebrew/bin/python3.10'
 export PATH="$HOME/.local/bin:$PATH"
-alias pav="source .venv/bin/activate"
-alias pfpo="cd ~/Tosin/proof_read/proofreading_math/pdf-math-ocr && pav"
-alias pfma="cd ~/Tosin/proof_read/proofreading_math/math-api && pav"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
