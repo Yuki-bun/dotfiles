@@ -16,7 +16,10 @@ echo "Installing stow"
 sudo apt install stow -y
 
 echo "Installing fzf"
-sudo apt install fzf
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install
+source ~/.bashrc
 
 echo "Installing lazygit"
 LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
