@@ -49,7 +49,6 @@ sudo apt install fortune -y
 
 print "Install zoxide"
 conda install -c conda-forge zoxide -y
-eval "$(zoxide init bash)"
 
 DOTFILES_DIR="/workspaces/.codespaces/.persistedshare/dotfiles"
 
@@ -59,4 +58,5 @@ ln -s $DOTFILES_DIR/tmux/.tmux.conf ~/.tmux.conf
 
 
 
+eval "$(zoxide init bash)"
 print "SetuphComplete"
