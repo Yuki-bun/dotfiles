@@ -153,3 +153,5 @@ cd_fzf() {
 
 # Alias to call the function
 alias cdf="cd_fzf"
+# Set up fzf key bindings and fuzzy completion
+source <(fzf --zsh)
