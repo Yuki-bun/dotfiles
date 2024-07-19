@@ -3,6 +3,9 @@ vim.keymap.set("n", "K", vim.lsp.buf.hover, { noremap = true, desc = "hover" })
 vim.keymap.set("n", "gd", require("telescope.builtin").lsp_definitions, { noremap = true, desc = "go to definitions" })
 vim.keymap.set("n", "gr", require("telescope.builtin").lsp_references, { noremap = true, desc = "go to refernces" })
 vim.keymap.set("n", "<leader>sk", require("telescope.builtin").keymaps, { noremap = true, desc = "keymaps" })
+vim.keymap.set("n", "<space>fV", ":Telescope file_browser<CR>")
+-- open file_browser with the path of the current buffer
+vim.keymap.set("n", "<space>fv", ":Telescope file_browser path=%:p:h select_buffer=true<CR>")
 
 vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, { noremap = true, desc = "rename variable" })
 vim.keymap.set("n", "<leader>cf", vim.lsp.buf.format, { noremap = true, desc = "format" })
