@@ -15,6 +15,7 @@ return {
 					"black",
 					"isort",
 					"swiftlint",
+					"rustfmt",
 				},
 			})
 		end,
@@ -32,6 +33,7 @@ return {
 					"pyright",
 					"clangd",
 					"prismals",
+					"rust_analyzer",
 				},
 			})
 		end,
@@ -57,6 +59,18 @@ return {
 			lspconfig.clangd.setup({ capabilities = capabilities, on_attach = on_attach })
 			lspconfig.prismals.setup({ capabilities = capabilities, on_attach = on_attach })
 			lspconfig.sourcekit.setup({ capabilities = capabilities, onattach = on_attach })
+			lspconfig.rust_analyzer.setup({
+				capabilities = capabilities,
+				on_attach = on_attach,
+				settings = {
+					["rust_analyzer"] = {
+						cargo = {
+							allFeatures = true,
+						},
+					},
+				},
+				lspconfig.gopls.setup({ capabilities = capabilities, on_attach = on_attach }),
+			})
 
 			--- @param direction '"next"'|'"prev"'
 			local function goto_reference(direction)
