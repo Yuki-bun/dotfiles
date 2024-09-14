@@ -32,7 +32,7 @@ vim.keymap.set("n", "<M-j>", "<C-W>-")
 vim.keymap.set("n", "bp", ":bprevious<CR>", { desc = "previous buffer", silent = true })
 vim.keymap.set("n", "bn", ":bnext<CR>", { desc = "next buffer", silent = true })
 
-vim.keymap.set("i", "jj", "<ESC>")
+vim.keymap.set({ "i", "s" }, "jj", "<ESC>")
 vim.keymap.set("n", "<leader>h", ":nohlsearch<CR>", { noremap = true, silent = true, desc = "turn off hightlight" })
 
 vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers["signature_help"], {
@@ -43,3 +43,44 @@ vim.keymap.set({ "i", "n" }, "<c-s>", vim.lsp.buf.signature_help)
 
 vim.keymap.set({ "n", "v" }, "H", "^")
 vim.keymap.set({ "n", "v" }, "L", "$")
+
+local ls = require("luasnip")
+
+vim.keymap.set({ "i" }, "<C-K>", function()
+	ls.expand()
+end, { silent = true })
+vim.keymap.set({ "i", "s" }, "<C-L>", function()
+	ls.jump(1)
+end, { silent = true })
+vim.keymap.set({ "i", "s" }, "<C-J>", function()
+	ls.jump(-1)
+end, { silent = true })
+
+vim.keymap.set({ "i", "s" }, "<C-E>", function()
+	if ls.choice_active() then
+		ls.change_choice(1)
+	end
+end, { silent = true })
+
+vim.keymap.set(
+	"n",
+	"<leader><leader>s",
+	"<cmd>source ~/.config/nvim/lua/custom/snippets.lua<CR>",
+	{ desc = "source snippets" }
+)
+
+require("custom.snippets")
+
+-- local function list_snippets()
+-- 	local snippets = ls.snippets
+--
+-- 	for ft, ft_snippets in pairs(snippets) do
+-- 		print("Filetype: " .. ft)
+-- 		for _, snippet in ipairs(ft_snippets) do
+-- 			print("  Snippet: " .. snippet.trigger)
+-- 			-- print(vim.inspect(snippet))
+-- 		end
+-- 	end
+-- end
+--
+-- list_snippets()
