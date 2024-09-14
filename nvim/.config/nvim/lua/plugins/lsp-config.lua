@@ -16,6 +16,7 @@ return {
 					"isort",
 					"swiftlint",
 					"rustfmt",
+					"sqlformat",
 				},
 			})
 		end,
@@ -34,6 +35,7 @@ return {
 					"clangd",
 					"prismals",
 					"rust_analyzer",
+					"sqlls",
 				},
 			})
 		end,
@@ -51,6 +53,7 @@ return {
 				local navbuddy = require("nvim-navbuddy")
 				navbuddy.attach(client, bufnr)
 			end
+			lspconfig.sqlls.setup({ capabilities = capabilities, on_attach = on_attach })
 			lspconfig.lua_ls.setup({ capabilities = capabilities, on_attach = on_attach })
 			lspconfig.tsserver.setup({ capabilities = capabilities, on_attach = on_attach })
 			lspconfig.html.setup({})

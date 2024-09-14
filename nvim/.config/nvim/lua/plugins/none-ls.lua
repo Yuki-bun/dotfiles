@@ -21,6 +21,7 @@ return {
 				null_ls.builtins.formatting.swiftformat,
 				null_ls.builtins.formatting.swiftlint,
 				null_ls.builtins.formatting.rustfmt,
+				null_ls.builtins.formatting.sql_formatter,
 			},
 		})
 	end,
