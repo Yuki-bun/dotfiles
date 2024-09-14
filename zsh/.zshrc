@@ -155,3 +155,13 @@ cd_fzf() {
 alias cdf="cd_fzf"
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
+
+alias lg='lazygit'
+alias gs='git switch'
+alias gcud='git reset --soft HEAD~1'
+alias gcw='git commit --no-verify'
+
+alias so='source ~/.zshrc'
+
+export GO111MODULE=on
+export PATH=$PATH:$(go env GOPATH)/bin
