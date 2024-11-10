@@ -165,3 +165,8 @@ alias so='source ~/.zshrc'
 
 export GO111MODULE=on
 export PATH=$PATH:$(go env GOPATH)/bin
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+export PATH="$PATH:/Users/yutomaruta/Library/Application Support/Coursier/bin"
