@@ -60,7 +60,7 @@ return {
 			end
 			lspconfig.sqlls.setup({ capabilities = capabilities, on_attach = on_attach })
 			lspconfig.lua_ls.setup({ capabilities = capabilities, on_attach = on_attach })
-			lspconfig.tsserver.setup({
+			lspconfig.ts_ls.setup({
 				capabilities = capabilities,
 				on_attach = function(client, bufnr)
 					on_attach(client, bufnr)
