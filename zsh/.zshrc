@@ -170,3 +170,5 @@ export PATH=$PATH:$(go env GOPATH)/bin
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 export PATH="$PATH:/Users/yutomaruta/Library/Application Support/Coursier/bin"
+
+[ -f "/Users/yutomaruta/.ghcup/env" ] && . "/Users/yutomaruta/.ghcup/env" # ghcup-env
