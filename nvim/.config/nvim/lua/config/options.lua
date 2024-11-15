@@ -13,3 +13,4 @@ vim.opt.relativenumber = true
 vim.opt.number = true
 
 vim.opt_global.wrap = false
+vim.opt.colorcolumn = "80"

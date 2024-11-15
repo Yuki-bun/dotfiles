@@ -18,5 +18,6 @@ require("config.options")
 require("utils")
 require("lazy").setup("plugins")
 require("config")
+require("current-theme")
 
 -- require("custom.lazygit")

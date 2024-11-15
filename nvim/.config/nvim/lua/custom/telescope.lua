@@ -6,3 +6,4 @@ vim.keymap.set("n", "<leader>fG", builtin.current_buffer_fuzzy_find, { desc = "f
 vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "find files (buffer)" })
 vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "help" })
 vim.keymap.set("n", "<leader>fm", builtin.marks, { noremap = true, desc = "find marks" })
+vim.keymap.set("n", "<leader>ct", "<CMD>Telescope themes<CR>", { noremap = true, desc = "find marks" })
