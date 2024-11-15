@@ -95,6 +95,7 @@ return {
 					},
 				},
 				lspconfig.gopls.setup({ capabilities = capabilities, on_attach = on_attach }),
+				lspconfig.metals.setup({ capabilities = capabilities, on_attach = on_attach }),
 			})
 
 			--- @param direction '"next"'|'"prev"'
