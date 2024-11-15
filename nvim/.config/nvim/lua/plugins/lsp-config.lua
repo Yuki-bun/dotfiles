@@ -36,6 +36,7 @@ return {
 					"prismals",
 					"rust_analyzer",
 					"sqlls",
+					"denols",
 				},
 			})
 		end,
@@ -49,13 +50,34 @@ return {
 			local lspconfig = require("lspconfig")
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
+			local is_node_dir = function()
+				return lspconfig.util.root_pattern("package.json")(vim.fn.getcwd())
+			end
+
 			local on_attach = function(client, bufnr)
 				local navbuddy = require("nvim-navbuddy")
 				navbuddy.attach(client, bufnr)
 			end
 			lspconfig.sqlls.setup({ capabilities = capabilities, on_attach = on_attach })
 			lspconfig.lua_ls.setup({ capabilities = capabilities, on_attach = on_attach })
-			lspconfig.tsserver.setup({ capabilities = capabilities, on_attach = on_attach })
+			lspconfig.tsserver.setup({
+				capabilities = capabilities,
+				on_attach = function(client, bufnr)
+					on_attach(client, bufnr)
+					if not is_node_dir() then
+						client.stop(true)
+					end
+				end,
+			})
+			lspconfig.denols.setup({
+				capabilities = capabilities,
+				on_attach = function(client, bufnr)
+					on_attach(client, bufnr)
+					if is_node_dir() then
+						client.stop(true)
+					end
+				end,
+			})
 			lspconfig.html.setup({})
 			lspconfig.tailwindcss.setup({})
 			lspconfig.pyright.setup({ capabilities = capabilities, on_attach = on_attach })
