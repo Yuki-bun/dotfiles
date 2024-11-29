@@ -6,8 +6,9 @@ return {
 				lua = { "stylua" },
 				-- Conform will run multiple formatters sequentially
 				python = { "isort", "black" },
-
-				javascript = { "prettierd", "prettier" },
+				javascript = { "prettierd", "eslint_d" },
+				typescript = { "prettierd", "eslint_d" },
+				typescriptreact = { "prettierd", "eslint_d" },
 			},
 
 			format_on_save = function(bufnr)

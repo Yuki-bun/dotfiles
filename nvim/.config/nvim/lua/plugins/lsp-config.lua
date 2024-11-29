@@ -2,21 +2,15 @@ local M = require("utils")
 return {
 	{
 		"williamboman/mason.nvim",
-		dependencies = { "jay-babu/mason-null-ls.nvim" },
+		dependencies = { "jay-babu/mason-null-ls.nvim", "nvimtools/none-ls.nvim" },
 		config = function()
 			require("mason").setup()
 			require("mason-null-ls").setup({
+				automatic_installation = true,
 				ensure_installed = {
 					"stylua",
 					"eslint_d",
-					"prettier",
 					"prettierd",
-					"autoflake",
-					"black",
-					"isort",
-					"swiftlint",
-					"rustfmt",
-					"sqlformat",
 				},
 			})
 		end,
@@ -31,10 +25,7 @@ return {
 					"jsonls",
 					"html",
 					"tailwindcss",
-					"pyright",
-					"clangd",
 					"prismals",
-					"rust_analyzer",
 					"sqlls",
 					"denols",
 				},
