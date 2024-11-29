@@ -19,6 +19,5 @@ require("utils")
 require("lazy").setup("plugins")
 require("config")
 require("current-theme")
-require("custom.ts-runtime")
 
 -- require("custom.lazygit")
