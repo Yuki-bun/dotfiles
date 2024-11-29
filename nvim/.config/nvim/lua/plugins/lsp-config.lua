@@ -50,8 +50,46 @@ return {
 			local lspconfig = require("lspconfig")
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-			local is_node_dir = function()
-				return lspconfig.util.root_pattern("package.json")(vim.fn.getcwd())
+			--- @param dir string|nil
+			local getPairentDir = function(dir)
+				local parentDir = vim.fn.fnamemodify(dir, ":h")
+				if parentDir == dir then
+					return nil
+				else
+					return parentDir
+				end
+			end
+
+			--- @param dir string
+			--- @return nil | { dir: string, type: 'node'|'deno'|'both' }
+			local function findRuntimeType(dir)
+				local package_json = dir .. "/package.json"
+				local deno_json = dir .. "/deno.json"
+				local hasPackageJson = vim.fn.filereadable(package_json) == 1
+				local denoJson = vim.fn.filereadable(deno_json) == 1
+
+				if hasPackageJson and denoJson then
+					return {
+						dir = dir,
+						type = "both",
+					}
+				elseif hasPackageJson then
+					return {
+						dir = dir,
+						type = "node",
+					}
+				elseif denoJson then
+					return {
+						dir = dir,
+						type = "deno",
+					}
+				end
+
+				local parent_dir = getPairentDir(dir)
+				if parent_dir == nil then
+					return nil
+				end
+				return findRuntimeType(parent_dir)
 			end
 
 			local on_attach = function(client, bufnr)
@@ -62,21 +100,29 @@ return {
 			lspconfig.lua_ls.setup({ capabilities = capabilities, on_attach = on_attach })
 			lspconfig.ts_ls.setup({
 				capabilities = capabilities,
-				on_attach = function(client, bufnr)
-					on_attach(client, bufnr)
-					if not is_node_dir() then
-						client.stop(true)
+				root_dir = function()
+					local dir = vim.fn.expand("%:p:h")
+					local runtime = findRuntimeType(dir)
+					if runtime and runtime.type == "node" then
+						return runtime.dir
+					else
+						return nil
 					end
 				end,
+				single_file_support = false,
 			})
 			lspconfig.denols.setup({
 				capabilities = capabilities,
-				on_attach = function(client, bufnr)
-					on_attach(client, bufnr)
-					if is_node_dir() then
-						client.stop(true)
+				root_dir = function()
+					local dir = vim.fn.expand("%:p:h")
+					local runtime = findRuntimeType(dir)
+					if runtime and (runtime.type == "deno" or runtime.type == "both") then
+						return runtime.dir
+					else
+						return nil
 					end
 				end,
+				single_file_support = true,
 			})
 			lspconfig.html.setup({})
 			lspconfig.tailwindcss.setup({})
