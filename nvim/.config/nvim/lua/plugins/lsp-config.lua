@@ -110,7 +110,7 @@ return {
 					if runtime and (runtime.type == "deno" or runtime.type == "both") then
 						return runtime.dir
 					else
-						return nil
+						return dir
 					end
 				end,
 				single_file_support = true,
