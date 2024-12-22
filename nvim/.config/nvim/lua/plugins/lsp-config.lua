@@ -37,7 +37,6 @@ return {
 		config = function()
 			-- IMPORTANT: make sure to setup neodev BEFORE lspconfig
 			require("neodev").setup({})
-			local cmp_nvim_lsp = require("cmp_nvim_lsp")
 			local lspconfig = require("lspconfig")
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
@@ -109,11 +108,13 @@ return {
 					local runtime = findRuntimeType(dir)
 					if runtime and (runtime.type == "deno" or runtime.type == "both") then
 						return runtime.dir
-					else
+					elseif runtime == nil then
 						return dir
+					else
+						return nil
 					end
 				end,
-				single_file_support = true,
+				single_file_support = false,
 			})
 			lspconfig.html.setup({})
 			lspconfig.tailwindcss.setup({})
@@ -235,13 +236,7 @@ return {
 	},
 	{
 		"mrcjkb/haskell-tools.nvim",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-		},
-		version = "^2", -- Recommended
-		ft = { "haskell", "lhaskell", "cabal", "cabalproject" },
-		init = function()
-			vim.g.haskell_tools = {}
-		end,
+		version = "^4", -- Recommended
+		lazy = false, -- This plugin is already lazy
 	},
 }
