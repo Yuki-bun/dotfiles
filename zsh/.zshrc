@@ -161,6 +161,8 @@ alias gs='git switch'
 alias gcud='git reset --soft HEAD~1'
 alias gcw='git commit --no-verify'
 
+alias fvim='vim $(fzf)'
+
 alias so='source ~/.zshrc'
 
 export GO111MODULE=on
