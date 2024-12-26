@@ -74,16 +74,5 @@ vim.keymap.set(
 
 require("custom.snippets")
 
--- local function list_snippets()
--- 	local snippets = ls.snippets
---
--- 	for ft, ft_snippets in pairs(snippets) do
--- 		print("Filetype: " .. ft)
--- 		for _, snippet in ipairs(ft_snippets) do
--- 			print("  Snippet: " .. snippet.trigger)
--- 			-- print(vim.inspect(snippet))
--- 		end
--- 	end
--- end
---
--- list_snippets()
+vim.keymap.set("n", "<space>x", ":.lua<CR>")
+vim.keymap.set("v", "<space>x", ":lua<CR>")
