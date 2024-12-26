@@ -21,12 +21,6 @@ print "Starting Setup"
 print "Updating apt"
 sudo apt update
 
-print "Installing nvim"
-curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
-chmod u+x nvim.appimage
-./nvim.appimage --appimage-extract
-sudo mv squashfs-root / && sudo ln -s /squashfs-root/AppRun /usr/bin/nvim
-
 print "Installing tmux"
 sudo apt install tmux -y
 
@@ -53,8 +47,7 @@ conda install -c conda-forge zoxide -y
 DOTFILES_DIR="/workspaces/.codespaces/.persistedshare/dotfiles"
 
 print "Setting up simlinks"
-ln -s $DOTFILES_DIR/nvim/.config/nvim ~/.config/nvim
-ln -s $DOTFILES_DIR/tmux/.tmux.conf ~/.tmux.conf
+ln -s $DOTFILES_DIR/.tmux.conf ~/.tmux.conf
 
 
 
