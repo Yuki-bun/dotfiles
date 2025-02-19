@@ -21,6 +21,9 @@ print "Starting Setup"
 print "Updating apt"
 sudo apt update
 
+print "Install tpm"
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
 print "Installing tmux"
 sudo apt install tmux -y
 
