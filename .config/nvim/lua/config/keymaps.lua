@@ -45,7 +45,7 @@ vim.keymap.set({ "i", "n" }, "<c-s>", vim.lsp.buf.signature_help)
 
 vim.keymap.set({ "n", "v" }, "H", "^")
 vim.keymap.set({ "n", "v" }, "L", "$")
-vim.keymap.set("v", "<leader>c", ":'<,'>y+<CR>", { noremap = true, desc = "copy to clipboard", silent = true })
+vim.keymap.set("v", "<leader>c", '"*y<CR>', { noremap = true, desc = "copy to clipboard", silent = true })
 
 local ls = require("luasnip")
 
