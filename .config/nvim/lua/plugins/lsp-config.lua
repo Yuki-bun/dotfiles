@@ -117,7 +117,7 @@ return {
 				single_file_support = false,
 			})
 			lspconfig.html.setup({})
-			lspconfig.tailwindcss.setup({})
+			lspconfig.tailwindcss.setup({ capabilities = capabilities })
 			lspconfig.pyright.setup({ capabilities = capabilities, on_attach = on_attach })
 			lspconfig.clangd.setup({ capabilities = capabilities, on_attach = on_attach })
 			lspconfig.prismals.setup({ capabilities = capabilities, on_attach = on_attach })
